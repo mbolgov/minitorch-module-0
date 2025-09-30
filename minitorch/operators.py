@@ -97,4 +97,26 @@ def relu_back(x, d):
 # - prod: take the product of lists
 
 
-# TODO: Implement for Task 0.3.
+def map(fn, xs):
+    return [fn(x) for x in xs]
+
+def zipWith(fn, xs, ys):
+    return [fn(x, y) for x, y in zip(xs, ys)]
+
+def reduce(fn, xs, start):
+    result = start
+    for x in xs:
+        result = fn(result, x)
+    return result
+
+def negList(xs):
+    return map(lambda x: -x, xs)
+
+def addLists(xs, ys):
+    return zipWith(lambda x, y: x + y, xs, ys)
+
+def sum(xs):
+    return reduce(lambda a, b: a + b, xs, 0)
+
+def prod(xs):
+    return reduce(lambda a, b: a * b, xs, 1)
